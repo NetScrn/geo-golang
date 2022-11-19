@@ -66,6 +66,7 @@ const (
 	componentTypeStateDistrict = "area"
 	componentTypeState         = "province"
 	componentTypeCountry       = "country"
+	componentTypeDistrict      = "district"
 )
 
 // Geocoder constructs Yandex geocoder
@@ -145,6 +146,8 @@ func parseYandexResult(r *yandexFeatureMember) *geo.Address {
 		case componentTypeCountry:
 			addr.Country = comp.Name
 			continue
+		case componentTypeDistrict:
+			addr.District = comp.Name
 		}
 	}
 
